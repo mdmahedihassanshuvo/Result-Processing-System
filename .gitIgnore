@@ -1,0 +1,72 @@
+# General
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+*.swo
+
+# Virtual Environment
+venv/
+.env
+.envrc
+*.env
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django specific
+db.sqlite3
+*.sqlite3
+*.log
+media/
+staticfiles/
+static/
+celerybeat-schedule
+local_settings.py
+instance/
+config/settings/local.py
+config/settings/*.local
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# MySQL/PostgreSQL
+*.dump
+*.sql
+
+# Migrations (Optional: If you want to ignore initial migrations)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Logs and Debugging Files
+logs/
+*.log
+nohup.out
+
+# Docker
+*.db
+docker-compose.override.yml
+
+# Node (if using npm for frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Coverage Reports
+.coverage
+htmlcov/
+.coverage.*
+
+# Compiled Files
+dist/
+build/
+
+# Secrets & Credentials
+secrets.json

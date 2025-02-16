@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block css_extra %}
+<style>
+    .register {
+        background: #f1eeee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .register-form {
+        background: #333;
+        color: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .input-group {
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid #333;
+        background: #fff;
+        color: #333;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background: #1a0664;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #110249;
+    }
+
+    .or {
+        margin: 15px 0;
+        color: #fff;
+    }
+
+    .google-btn {
+        background: #1a0664;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .google-btn img {
+        width: 20px;
+        margin-right: 5px;
+    }
+
+    .google-btn span {
+        color: white;
+    }
+
+    .google-btn:hover {
+        background: #110249;
+    }
+
+    .login-link {
+        margin-top: 10px;
+        color: #fff;
+    }
+
+    .login-link a {
+        color: #7b52ff;
+        text-decoration: none;
+    }
+</style>
+{% endblock css_extra %}
+{% block content %}
+
+<div class="register">
+    <div class="row">
+        <div class="col-md-6 d-none d-md-flex justify-content-end align-items-center">
+            <div id="lottie-container" style="width: 500px; height: 500px;"></div>
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-start align-items-center">
+            <div class="register-form">
+                <h2>Login Now</h2>
+                <form method="POST" action="{% url 'user_login' %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <label for="email">Email/Username</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+                <div class="or">OR</div>
+                <div class="google-btn">
+                    <img src="{% static 'assets/google-icon.png' %}" alt="Google"> <span>Login with Google</span>
+                </div>
+                <div class="login-link">Don't have any account? <a href="{% url 'Core:register' %}">Register</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block js_extra %}
+<script>
+    $(document).ready(function() {
+        lottie.loadAnimation({
+            container: $("#lottie-container")[0],
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            path: "{% static 'animations/animation.json' %}"
+        });
+    });
+</script>
+{% endblock js_extra %}
